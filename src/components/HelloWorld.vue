@@ -1,6 +1,10 @@
 <template>
   <q-page padding>
-    <input v-model="message" @keyup="handleKeyup" />
+    <input
+      v-model="message"
+      @keyup.esc="clearMessage"
+      @keyup.enter="alertMessage"
+    />
     <button @click="clearMessage">Clear</button>
     <h5>{{ message }}</h5>
   </q-page>
@@ -17,8 +21,8 @@ export default {
     clearMessage() {
       this.message = '';
     },
-    handleKeyup(e) {
-      console.log(e);
+    alertMessage() {
+      alert(this.message);
     },
   },
 };
