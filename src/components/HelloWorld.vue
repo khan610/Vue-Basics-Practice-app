@@ -10,6 +10,7 @@
       @keyup.enter="alertMessage"
       v-autofocus
       :style="errorStyle"
+      ref="messageInput"
     />
 
     <div>{{ message.length }}</div>
@@ -76,19 +77,8 @@ export default {
     console.log('beforemounted');
   },
   mounted() {
-    console.log('mounted');
-  },
-  beforeUpdate() {
-    console.log('beforeUpdate');
-  },
-  updated() {
-    console.log('updated');
-  },
-  beforeDestroy() {
-    console.log('beforeDestroy');
-  },
-  destroyed() {
-    console.log('destroyed');
+    console.log(this.$refs);
+    this.$refs.messageInput.className = 'bg-green';
   },
 };
 </script>
